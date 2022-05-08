@@ -14,7 +14,7 @@
         <tbody>
             {% for cliente in clientes %}
                 <tr>
-                    <td><a href="{% url 'costumer:detalhes' cliente.pk %}">{{ cliente.id }}</a></td>
+                    <td><a href="{% url 'costumer:cliente_detalhe' cliente.pk %}">{{ cliente.id }}</a></td>
                     <td>{{cliente.nome}} {{cliente.sobrenome}}</td>
                     <td>({{cliente.ddd}}) {{cliente.telefone}}</td>
                     <td>{{cliente.email}}</td>

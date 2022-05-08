@@ -36,7 +36,7 @@
         {% for produto in clientes.produtos_cadastrados.all %}
             <tbody>
                     <tr>
-                        <td>{{ produto.nome }}</td>
+                        <td><a href="{% url 'costumer:produto_detalhe' produto.pk %}">{{produto.nome}}</a></td>
                         <td>{{produto.registro_cadastro}}</td>
                         <td>{{produto.registro_atualizacao}}</td>
                         <td><p>{{produto.descricao}}</p></td>

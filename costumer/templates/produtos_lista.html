@@ -1,0 +1,24 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+    <h3>Listagem de produtos:</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Data de criação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+                <tr>
+                    <td><a href="{% url 'costumer:produto_detalhe' produto.pk %}">{{produto.id}}</a></td>
+                    <td>{{produto.nome}}</td>
+                    <td>{{produto.registro_cadastro}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

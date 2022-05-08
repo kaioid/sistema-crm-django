@@ -1,0 +1,25 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+    <h3>Exibindo dados para produto ID: {{produtos.id}}</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de cadastro</th>
+                <th>Última atualização</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{produtos.nome}}</td>
+                    <td>{{produtos.registro_cadastro}}</td>
+                    <td>{{produtos.registro_atualizacao}}</td>
+                    <td>{{produtos.descricao}}</td>
+                </tr>
+        </tbody>
+
+    </table>
+
+{% endblock %}
