@@ -1,0 +1,49 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+    <h3>Exibindo dados para cliente ID: {{clientes.id}}</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nome completo</th>
+                <th>Cliente desde</th>
+                <th>Status</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{clientes.nome}} {{clientes.sobrenome}}</td>
+                    <td>{{ clientes.registro_cadastro }}</td>
+                    <td>{% if clientes.ativo == True %} Ativo {% else %} Inativo {% endif %}</td>
+                    <td>({{clientes.ddd}}) {{clientes.telefone}}</td>
+                    <td>{{clientes.email}}</td>
+                </tr>
+        </tbody>
+
+    </table>
+    <h3>Produtos contratados:</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Data de criação</th>
+                <th>Última atualização</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        {% for produto in clientes.produtos_cadastrados.all %}
+            <tbody>
+                    <tr>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{produto.registro_cadastro}}</td>
+                        <td>{{produto.registro_atualizacao}}</td>
+                        <td><p>{{produto.descricao}}</p></td>
+                    </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}
