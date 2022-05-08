@@ -23,13 +23,19 @@ class Cliente(models.Model):
     data_nascimento = models.DateField()
     ddd = models.CharField(max_length=3)
     telefone = models.CharField(max_length=10)
-    produtos_cadastrados = models.ManyToManyField(Produto, default="Não contratou nenhum serviço")
+    produtos_cadastrados = models.ManyToManyField(Produto)
     registro_cadastro = models.DateTimeField(auto_now_add=True)
     registro_atualizacao = models.DateTimeField(auto_now=True)
     ativo = models.BooleanField(default=True)   # em caso de cancelamento de serviço se tornará inativo
 
     def __str__(self):
         return f"{self.nome} {self.sobrenome}"
+
+    def get_full_name(self):
+        return f"{self.nome} {self.sobrenome}"
+
+    def get_full_number(self):
+        return f"({self.ddd}) {self.telefone}"
 
     class Meta:
         db_table = "cliente"

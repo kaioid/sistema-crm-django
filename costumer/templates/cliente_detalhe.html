@@ -10,15 +10,17 @@
                 <th>Status</th>
                 <th>Telefone</th>
                 <th>E-mail</th>
+                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
                 <tr>
-                    <td>{{clientes.nome}} {{clientes.sobrenome}}</td>
+                    <td>{{clientes.get_full_name}}</td>
                     <td>{{ clientes.registro_cadastro }}</td>
                     <td>{% if clientes.ativo == True %} Ativo {% else %} Inativo {% endif %}</td>
-                    <td>({{clientes.ddd}}) {{clientes.telefone}}</td>
+                    <td>{{clientes.get_full_number}}</td>
                     <td>{{clientes.email}}</td>
+                    <td><button type="button" class="btn btn-warning">Editar</button><button type="button" class="btn btn-danger">Excluir</button></td>
                 </tr>
         </tbody>
 

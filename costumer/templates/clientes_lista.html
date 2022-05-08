@@ -2,6 +2,9 @@
 
 {% block content %}
     <h3>Listagem de clientes:</h3>
+    <a href="{% url 'costumer:adicionar_cliente' %}">
+        <button type="button" style="float: right; margin-bottom: 10px;" class="btn btn-primary">Adicionar novo cliente</button>
+    </a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -15,8 +18,8 @@
             {% for cliente in clientes %}
                 <tr>
                     <td><a href="{% url 'costumer:cliente_detalhe' cliente.pk %}">{{ cliente.id }}</a></td>
-                    <td>{{cliente.nome}} {{cliente.sobrenome}}</td>
-                    <td>({{cliente.ddd}}) {{cliente.telefone}}</td>
+                    <td>{{cliente.get_full_name}}</td>
+                    <td>{{cliente.get_full_number}}</td>
                     <td>{{cliente.email}}</td>
                 </tr>
             {% endfor %}
