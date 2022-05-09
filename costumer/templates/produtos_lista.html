@@ -3,7 +3,7 @@
 {% block content %}
     <h3>Listagem de produtos:</h3>
     <a href="{% url 'costumer:adicionar_produto' %}">
-        <button type="button" style="float: right; margin-bottom: 10px;" class="btn btn-primary">Adicionar novo cliente</button>
+        <button type="button" style="float: right; margin-bottom: 10px;" class="btn btn-primary">Adicionar novo produto</button>
     </a>
     <table class="table table-bordered">
         <thead>
@@ -23,5 +23,22 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}">Anterior</a></li>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+        {% endif %}
+        {% for object in page_obj.paginator.page_range %}
+            <li class="page-item"><a class="page-link" href="?page={{forloop.counter}}">{{forloop.counter}}</a></li>
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">Próxima</a></li>
+        {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">Próxima</a></li>
+        {% endif %}
+  </ul>
+
 
 {% endblock %}

@@ -6,6 +6,7 @@ from django.urls import reverse, reverse_lazy
 
 class ClienteListView(ListView):
     model = Cliente
+    paginate_by = 5
     template_name = 'clientes_lista.html'
     queryset = Cliente.objects.all()
     context_object_name = 'clientes'
@@ -13,6 +14,7 @@ class ClienteListView(ListView):
 
 class ProdutoListView(ListView):
     model = Produto
+    paginate_by = 5
     template_name = 'produtos_lista.html'
     context_object_name = 'produtos'
 
