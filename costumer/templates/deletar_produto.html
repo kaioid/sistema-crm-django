@@ -1,7 +1,15 @@
 {% extends "model-page.html" %}
 
 {% block content %}
-    <h3>Exibindo dados para produto ID: {{produtos.id}}</h3>
+<h3>Deletando...</h3>
+    <div class="alert alert-danger">
+        <form method="POST">
+            {% csrf_token %}
+            <strong>Tem certeza que deseja deletar o cliente ID: {{produtos.id}} Nome: {{produtos.nome}}?</strong>
+            <a class="btn btn-primary" style="float:right;" href="{% url 'costumer:produto_detalhe' produtos.id %}">Cancelar</a>
+            <input class="btn btn-danger" style="float:right;" type="submit" value="Sim"/>
+        </form>
+    </div>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -9,7 +17,6 @@
                 <th>Data de cadastro</th>
                 <th>Última atualização</th>
                 <th>Descrição</th>
-                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
@@ -18,14 +25,6 @@
                     <td>{{produtos.registro_cadastro}}</td>
                     <td>{{produtos.registro_atualizacao}}</td>
                     <td>{{produtos.descricao}}</td>
-                    <td>
-                        <a href="{%url 'costumer:atualizar_produto' produtos.pk%}">
-                            <button type="button" class="btn btn-warning">Editar</button>
-                        </a>
-                        <a href="{% url 'costumer:deletar_produto' produtos.pk %}">
-                            <button type="button" class="btn btn-danger">Excluir</button>
-                        </a>
-                    </td>
                 </tr>
         </tbody>
 

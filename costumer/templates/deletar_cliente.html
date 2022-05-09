@@ -1,0 +1,35 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+    <h3>Deletando...</h3>
+    <div class="alert alert-danger">
+        <form method="POST">
+            {% csrf_token %}
+            <strong>Tem certeza que deseja deletar o cliente ID: {{clientes.id}} Nome: {{clientes.nome}}?</strong>
+            <a class="btn btn-primary" style="float:right;" href="{% url 'costumer:cliente_detalhe' clientes.id %}">Cancelar</a>
+            <input class="btn btn-danger" style="float:right;" type="submit" value="Sim"/>
+        </form>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nome completo</th>
+                <th>Cliente desde</th>
+                <th>Status</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>{{clientes.get_full_name}}</td>
+                    <td>{{ clientes.registro_cadastro }}</td>
+                    <td>{% if clientes.ativo == True %} Ativo {% else %} Inativo {% endif %}</td>
+                    <td>{{clientes.get_full_number}}</td>
+                    <td>{{clientes.email}}</td>
+                </tr>
+        </tbody>
+
+    </table>
+
+{% endblock %}

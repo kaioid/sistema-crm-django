@@ -20,7 +20,14 @@
                     <td>{% if clientes.ativo == True %} Ativo {% else %} Inativo {% endif %}</td>
                     <td>{{clientes.get_full_number}}</td>
                     <td>{{clientes.email}}</td>
-                    <td><button type="button" class="btn btn-warning">Editar</button><button type="button" class="btn btn-danger">Excluir</button></td>
+                    <td>
+                        <a href="{%url 'costumer:atualizar_cliente' clientes.pk%}">
+                            <button type="button" class="btn btn-warning">Editar</button>
+                        </a>
+                        <a href="{% url 'costumer:deletar_cliente' clientes.pk %}">
+                            <button type="button" class="btn btn-danger">Excluir</button>
+                        </a>
+                    </td>
                 </tr>
         </tbody>
 

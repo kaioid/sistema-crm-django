@@ -2,10 +2,13 @@
 
 {% block content %}
     <h3>Listagem de produtos:</h3>
+    <a href="{% url 'costumer:adicionar_produto' %}">
+        <button type="button" style="float: right; margin-bottom: 10px;" class="btn btn-primary">Adicionar novo cliente</button>
+    </a>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
+                <th class="col-sm-1">Detalhes</th>
                 <th>Nome</th>
                 <th>Data de criação</th>
             </tr>
@@ -13,7 +16,7 @@
         <tbody>
             {% for produto in produtos %}
                 <tr>
-                    <td><a href="{% url 'costumer:produto_detalhe' produto.pk %}">{{produto.id}}</a></td>
+                    <td><a href="{% url 'costumer:produto_detalhe' produto.pk %}"><i class="fa fa-search"></a></td>
                     <td>{{produto.nome}}</td>
                     <td>{{produto.registro_cadastro}}</td>
                 </tr>
