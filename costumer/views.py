@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from costumer.models import Cliente, Produto
 from .forms import ClienteForm, ProdutoForm
@@ -8,8 +9,15 @@ class ClienteListView(ListView):
     model = Cliente
     paginate_by = 5
     template_name = 'clientes_lista.html'
-    queryset = Cliente.objects.all()
     context_object_name = 'clientes'
+
+    def get_queryset(self):
+        name = self.request.GET.get("name")
+        if name:
+            object_list = self.model.objects.filter(Q(nome__icontains=name) | Q(sobrenome__icontains=name))
+        else:
+            object_list = self.model.objects.all()
+        return object_list
 
 
 class ProdutoListView(ListView):
@@ -17,6 +25,14 @@ class ProdutoListView(ListView):
     paginate_by = 5
     template_name = 'produtos_lista.html'
     context_object_name = 'produtos'
+
+    def get_queryset(self):
+        name = self.request.GET.get("name")
+        if name:
+            object_list = self.model.objects.filter(nome__icontains=name)
+        else:
+            object_list = self.model.objects.all()
+        return object_list
 
 
 class DetalhesClienteView(DetailView):

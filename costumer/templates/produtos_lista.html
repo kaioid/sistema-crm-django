@@ -5,6 +5,13 @@
     <a href="{% url 'costumer:adicionar_produto' %}">
         <button type="button" style="float: right; margin-bottom: 10px;" class="btn btn-primary">Adicionar novo produto</button>
     </a>
+
+    <form style="margin-bottom: 5px;">
+        <div class="form-group">
+            <input class="form-control" type="text" name="name" placeholder="Buscar por nome...">
+        </div>
+        <button type="submit" style="margin-top:5px;" class="btn btn-primary">Buscar</button>
+    </form>
     <table class="table table-bordered">
         <thead>
             <tr>
