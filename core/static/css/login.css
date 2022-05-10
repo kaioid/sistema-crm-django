@@ -1,15 +1,19 @@
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "Lucida Console", Monaco, monospace;
+
+
 }
 
 .main-head{
     height: 150px;
     background: #FFF;
+
 }
 
 .sidenav {
     height: 100%;
-    background-color: #000;
+    background: rgb(45,47,50);
+    background: linear-gradient(0deg, rgba(45,47,50,1) 0%, rgba(49,44,46,1) 17%, rgba(51,43,44,1) 100%);
     overflow-x: hidden;
     padding-top: 20px;
 }
@@ -58,13 +62,17 @@ body {
     margin-top: 20%;
     padding: 60px;
     color: #fff;
+
 }
 
 .login-main-text h2{
     font-weight: 300;
+    font-family: "Lucida Console", Monaco, monospace;
 }
 
 .btn-black{
-    background-color: #000 !important;
+    background: rgb(45,47,50);
+    background: linear-gradient(0deg, rgba(45,47,50,1) 0%, rgba(49,44,46,1) 17%, rgba(51,43,44,1) 100%) !important;
     color: #fff;
+    font-family: "Lucida Console", Monaco, monospace;
 }

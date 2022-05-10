@@ -74,7 +74,16 @@ class AdicionarProdutoView(CreateView):
 class AtualizarClienteView(UpdateView):
     model = Cliente
     template_name = 'atualizar_cliente.html'
-    form_class = ClienteForm
+    fields = [
+        "nome",
+        "sobrenome",
+        "email",
+        "data_nascimento",
+        "ddd",
+        "telefone",
+        "produtos_cadastrados"
+    ]
+    context_object_name = 'clientes'
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -93,6 +102,8 @@ class AtualizarProdutoView(UpdateView):
 
     def get_success_url(self):
         return reverse('costumer:produtos')
+
+    context_object_name = 'produtos'
 
 
 class DeletarClienteView(DeleteView):
