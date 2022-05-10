@@ -1,6 +1,29 @@
 # Sistema de Gerenciamento de Clientes
-## Projeto pessoal (:
+### Projeto pessoal (:
 
-### O sistema de gerenciamento já está funcionando com Adicionar, Atualizar, Deletar e Listar para as duas entidades criadas, respectivamente, Produto e Cliente. Também implementei paginação exibindo 5 itens por página e busca por nome. A última etapa foi implementar um sistema de autenticação e login.
+Sistema de Gerenciamento com duas entidades relacionadas (Produto, Cliente) possui todas as funcionalidades para gerenciar clientes/produtos (Listar, Adicionar, Atualizar e Deletar).
 
-### Consegui implementar tudo que eu queria... A partir deste ponto irei migrar para o PostgreSQL e fazer o deploy da aplicação no heroku
+Utilizei Django para a implementação do back-end e Bootstrap para o front-end.
+
+
+### Para rodar este projeto em sua máquina:
+Instalar dependências
+```
+pip install -r requirements.txt
+```
+ou
+```
+pip3 install -r requirements.txt
+```
+Criar tabelas
+```
+python manage.py migrate
+```
+Criar um usuário
+```
+python manage.py createsuperuser
+```
+Rodar a aplicação
+```
+python manage.py runserver
+```
