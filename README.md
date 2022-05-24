@@ -1,5 +1,5 @@
 # Sistema de Gerenciamento de Clientes
-### Projeto pessoal (:
+
 
 Sistema de Gerenciamento com duas entidades relacionadas (Produto, Cliente) possui todas as funcionalidades para gerenciar clientes/produtos (Listar, Adicionar, Atualizar e Deletar).
 
